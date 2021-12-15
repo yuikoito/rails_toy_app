@@ -6,7 +6,7 @@ require:
   - rubocop-rails
   - rubocop-rspec
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 3.0
   NewCops: enable
   Exclude:
     - 'bin/*'
@@ -80,6 +80,7 @@ Naming/MethodParameterName:
     - e
     - i
     - n
+    - id
 
 # TODO: 設定が想定通りに適用されないので，Rubocop の update 後に再度検証する．
 Rails/RedundantForeignKey:
@@ -103,14 +104,11 @@ RSpec/DescribedClass:
   EnforcedStyle: described_class
 
 RSpec/ExampleLength:
-  Max: 5
-  # TODO:
-  #   rubocop-rspec v2.3.0 以上で使用可能なオプション
-  #   update したらコメントアウトを解除する
-  # CountAsOne:
-  #   - 'array'
-  #   - 'hash'
-  #   - 'heredoc'
+  Max: 20
+  CountAsOne:
+    - 'array'
+    - 'hash'
+    - 'heredoc'
 
 RSpec/MultipleMemoizedHelpers:
   Max: 10
@@ -179,3 +177,6 @@ Style/WordArray:
   Exclude:
     - 'db/schema.rb'
     - 'db/migrate/**/*'
+
+RSpec/MultipleExpectations:
+  Max: 3
